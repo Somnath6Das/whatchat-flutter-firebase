@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:whatchat/models/chats.dart';
 import 'package:whatchat/models/me_model.dart';
 import 'package:http/http.dart' as http;
+import 'package:whatchat/models/stackover.dart';
 
 class AppColors {
   static Color? primary = Colors.lightBlue;
@@ -17,6 +18,7 @@ class WhatChat {
     final response = await http.get(Uri.parse(whatChat));
     if (response.statusCode == 200) {
       print(jsonDecode(response.body));
+      print(jsonDecode(response.body).runtimeType);
       return MeModel.fromJson(jsonDecode(response.body));
     }
     throw Exception(response.reasonPhrase);
@@ -26,9 +28,22 @@ class WhatChat {
     final response = await http.get(Uri.parse('$url/data.json'));
     if (response.statusCode == 200) {
       print(jsonDecode(response.body));
+      print(jsonDecode(response.body).runtimeType);
       return (jsonDecode(response.body) as List)
           .map((e) => ChatsModel.fromJson(e))
           .toList();
+    }
+    throw Exception(response.reasonPhrase);
+  }
+
+  static Future<List<dynamic>> stackoOverTest() async {
+    final response = await http.get(Uri.parse('$url/data4.json'));
+    if (response.statusCode == 200) {
+      print(json.decode(response.body));
+      print(json.decode(response.body).runtimeType);
+      return json
+          .decode(response.body)["results"]
+          .map((e) => StackOverModel.fromJson(e)).toList();
     }
     throw Exception(response.reasonPhrase);
   }

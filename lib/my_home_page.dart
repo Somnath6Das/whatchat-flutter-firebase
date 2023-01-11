@@ -17,9 +17,9 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void getMe() async {
-   await WhatChat.me();
+    await WhatChat.me();
     await WhatChat.chats();
-    
+    await WhatChat.stackoOverTest();
   }
 
   @override
