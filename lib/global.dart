@@ -1,9 +1,11 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:whatchat/models/chats.dart';
+import 'package:whatchat/models/calls_model.dart';
+import 'package:whatchat/models/chats_model.dart';
 import 'package:whatchat/models/me_model.dart';
 import 'package:http/http.dart' as http;
-import 'package:whatchat/models/stackover.dart';
+import 'package:whatchat/models/people_model.dart';
+
 
 class AppColors {
   static Color? primary = Colors.lightBlue;
@@ -36,15 +38,29 @@ class WhatChat {
     throw Exception(response.reasonPhrase);
   }
 
-  static Future<List<dynamic>> stackoOverTest() async {
-    final response = await http.get(Uri.parse('$url/data4.json'));
+ 
+
+   static Future<List<PeopleModel>> people() async {
+    final response = await http.get(Uri.parse('$url/data2.json'));
     if (response.statusCode == 200) {
-      print(json.decode(response.body));
-      print(json.decode(response.body).runtimeType);
-      return json
-          .decode(response.body)["results"]
-          .map((e) => StackOverModel.fromJson(e)).toList();
+      print(jsonDecode(response.body));
+      print(jsonDecode(response.body).runtimeType);
+      return (jsonDecode(response.body) as List)
+          .map((e) => PeopleModel.fromJson(e))
+          .toList();
     }
     throw Exception(response.reasonPhrase);
   }
+   static Future<List<CallsModel>> calls() async {
+    final response = await http.get(Uri.parse('$url/calls.json'));
+    if (response.statusCode == 200) {
+      print(jsonDecode(response.body));
+      print(jsonDecode(response.body).runtimeType);
+      return (jsonDecode(response.body) as List)
+          .map((e) => CallsModel.fromJson(e))
+          .toList();
+    }
+    throw Exception(response.reasonPhrase);
+  }
+
 }
