@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:whatchat/models/calls_model.dart';
 import 'package:whatchat/models/chats_model.dart';
@@ -8,7 +9,7 @@ import 'package:whatchat/models/people_model.dart';
 
 
 class AppColors {
-  static Color? primary = Colors.lightBlue;
+  static Color? primary = Color.fromARGB(255, 72, 153, 6);
   static Color? bottomTabBarBackground = Colors.white;
 }
 

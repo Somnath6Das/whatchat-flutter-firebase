@@ -18,12 +18,12 @@ class CallsModel {
 
   factory CallsModel.fromJson(Map<String, dynamic> map) {
     return CallsModel(
-      name: map['name'] ?? '',
-      avatar: map['avatar'] ?? '',
-      data: map['data'] ?? '',
-      outbound: map['outbound'] ?? '',
-      count: map['count'] ?? '',
-      type: map['type'] ?? '',
+      name: map['name'],
+      avatar: map['avatar'],
+      data: map['data'],
+      outbound: map['outbound'],
+      count: map['count'],
+      type: map['type'],
     );
   }
 }

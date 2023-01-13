@@ -18,12 +18,12 @@ class ChatsModel {
     required this.type,
   });
   factory ChatsModel.fromJson(Map<String, dynamic> data) => ChatsModel(
-      name: data["name"],
-      avatar: data["avatar"],
-      msg: data["msg"],
-      date: data["date"],
-      count: data["count"],
-      story: data["story"],
-      opened: data["opened"],
-      type: data["type"]);
+      name: data["name"] ?? "",
+      avatar: data["avatar"] ??"",
+      msg: data["msg"] ??"",
+      date: data["date"] ??"",
+      count: data["count"] ??"",
+      story: data["story"] ??"",
+      opened: data["opened"] ??"",
+      type: data["type"] ??"");
 }
