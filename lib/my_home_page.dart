@@ -25,6 +25,7 @@ class _MyHomePageState extends State<MyHomePage> {
     await WhatChat.chats();
     await WhatChat.people();
     await WhatChat.calls();
+    await WhatChat.message();
   }
 
   var screen = [ChatsScreen(), CallsScreen(), PeopleScreen(), SettingsScreen()];
@@ -42,12 +43,14 @@ class _MyHomePageState extends State<MyHomePage> {
                         CupertinoIcons.chat_bubble_fill,
                       )),
                   BottomNavigationBarItem(
-                      label: "Calls", icon: Icon(CupertinoIcons.phone_circle_fill)),
+                      label: "Calls",
+                      icon: Icon(CupertinoIcons.phone_circle_fill)),
                   BottomNavigationBarItem(
                       label: "People",
                       icon: Icon(CupertinoIcons.person_circle_fill)),
                   BottomNavigationBarItem(
-                      label: "Settings", icon: Icon(CupertinoIcons.gear_alt_fill)),
+                      label: "Settings",
+                      icon: Icon(CupertinoIcons.gear_alt_fill)),
                 ]),
             tabBuilder: ((BuildContext context, int index) {
               return Container(

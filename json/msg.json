@@ -1,0 +1,30 @@
+[
+  {
+    "image": "https://cdn-icons-png.flaticon.com/512/236/236832.png",
+    "msg": "Did you notice the similarity in a woman I will be ready in five minutes and man I will be home in five minutes are completely the same? In this case, their minutes are proportionally big!",
+    "sender": true,
+    "type": "text",
+    "opened": false
+  },
+  {
+    "image": "https://cdn-icons-png.flaticon.com/512/924/924874.png",
+    "msg":"Tourism is the next big thing. All countries are attracting their tourists with their taglines: Amazing Thailand, Incredible India.",
+    "sender": false,
+    "type": "audio",
+    "opened": true
+  },
+  {
+    "image": "https://cdn-icons-png.flaticon.com/512/1154/1154448.png",
+    "msg": "In the gym: I want to impress that beautiful girl. Which machine should I use a man asks the trainer. Trainer replies: Use the ATM",
+    "sender": true,
+    "type": "video",
+    "opened": false
+  },
+  {
+    "image": "https://cdn-icons-png.flaticon.com/512/145/145867.png",
+    "msg": "I bought a new printer because it's cheaper than the ink refills. Now I think about how long until new cars are cheaper than fuel.",
+    "sender": false,
+    "type": "picture",
+    "opened": true
+  }
+]

@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:whatchat/components/search_bar.dart';
 import 'package:whatchat/global.dart';
 import 'package:whatchat/models/people_model.dart';
 
@@ -17,7 +18,8 @@ class PeopleScreen extends StatelessWidget {
                   "People",
                   style: TextStyle(color: AppColors.primary),
                 ),
-              ),
+              ), 
+              SearchBar(onChanged: (){}, onSubmitted: (){},),
               snapshot.hasData
                   ? SliverList(
                       delegate: SliverChildListDelegate(snapshot.data!

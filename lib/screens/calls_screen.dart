@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
+import 'package:whatchat/components/search_bar.dart';
 import 'package:whatchat/global.dart';
 import 'package:whatchat/models/calls_model.dart';
-
 
 class CallsScreen extends StatelessWidget {
   const CallsScreen({super.key});
@@ -13,9 +13,13 @@ class CallsScreen extends StatelessWidget {
         builder: (context, snapshot) {
           return CustomScrollView(
             slivers: [
-             CupertinoSliverNavigationBar(
-                largeTitle: Text("Calls", style: TextStyle(color: AppColors.primary), ),
+              CupertinoSliverNavigationBar(
+                largeTitle: Text(
+                  "Calls",
+                  style: TextStyle(color: AppColors.primary),
+                ),
               ),
+              SearchBar(onChanged: (){}, onSubmitted: (){},),
               snapshot.hasData
                   ? SliverList(
                       delegate: SliverChildListDelegate(
@@ -23,7 +27,9 @@ class CallsScreen extends StatelessWidget {
                     )
                   : (snapshot.connectionState == ConnectionState.waiting)
                       ? SliverFillRemaining(
-                          child: CupertinoActivityIndicator(color: AppColors.primary,),
+                          child: CupertinoActivityIndicator(
+                            color: AppColors.primary,
+                          ),
                         )
                       : SliverFillRemaining(
                           child: Center(
@@ -31,7 +37,6 @@ class CallsScreen extends StatelessWidget {
                         ))
             ],
           );
-  
         });
   }
 }
