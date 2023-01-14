@@ -15,18 +15,36 @@ class ChatsScreen extends StatelessWidget {
         builder: (context, snapshot) {
           return CustomScrollView(
             slivers: [
-             CupertinoSliverNavigationBar(
-                largeTitle: Text("Chats", style: TextStyle(color: AppColors.primary), ),
+              CupertinoSliverNavigationBar(
+                largeTitle: Text(
+                  "Chats",
+                  style: TextStyle(color: AppColors.primary),
+                ),
               ),
-              SearchBar(onChanged: (){},onSubmitted: (){},),
+              SearchBar(
+                onChanged: () {},
+                onSubmitted: () {},
+              ),
               snapshot.hasData
                   ? SliverList(
-                      delegate: SliverChildListDelegate(
-                          snapshot.data!.map((chatData) => MyListTile(data: chatData)).toList()),
+                      delegate: SliverChildListDelegate(snapshot.data!
+                          .map((e) => MyListTile(
+                              key: UniqueKey(),
+                              image: e.avatar,
+                              title: e.name,
+                              subtitle: e.msg,
+                              date: e.date,
+                              count: e.count,
+                              icon: CupertinoIcons.chevron_right,
+                              onTap: ()=>{},
+                              onImageTap: ()=>{}))
+                          .toList()),
                     )
                   : (snapshot.connectionState == ConnectionState.waiting)
                       ? SliverFillRemaining(
-                          child: CupertinoActivityIndicator(color: AppColors.primary,),
+                          child: CupertinoActivityIndicator(
+                            color: AppColors.primary,
+                          ),
                         )
                       : SliverFillRemaining(
                           child: Center(
@@ -34,7 +52,6 @@ class ChatsScreen extends StatelessWidget {
                         ))
             ],
           );
-  
         });
   }
 }
