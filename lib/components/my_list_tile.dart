@@ -25,25 +25,24 @@ class MyListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return GestureDetector(  
       onTap: () => onTap(),
       child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 0),
+        padding: const EdgeInsets.symmetric(vertical: 10,),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                image != null
-                    ? GestureDetector(
-                        onTap: () => onImageTap(),
-                        child: CircleAvatar(
-                          radius: 30,
-                          backgroundImage: NetworkImage(image),
-                        ),
-                      )
-                    : Container(),
+                image != null?
+                GestureDetector(
+                  onTap: () => onImageTap(),
+                  child: CircleAvatar(
+                    radius: 30,
+                    backgroundImage: NetworkImage(image),
+                  ),
+                ): Container(),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 6),
                   child: Column(
