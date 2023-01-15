@@ -28,7 +28,7 @@ class MyListTile extends StatelessWidget {
     return GestureDetector(  
       onTap: () => onTap(),
       child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 10,),
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 30),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
@@ -43,9 +43,10 @@ class MyListTile extends StatelessWidget {
                     backgroundImage: NetworkImage(image),
                   ),
                 ): Container(),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 6),
-                  child: Column(
+               
+                const SizedBox(width: 14,),
+                 Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       title != null
                           ? Text(
@@ -62,13 +63,15 @@ class MyListTile extends StatelessWidget {
                           : Container()
                     ],
                   ),
-                )
+             
               ],
             ),
+            Expanded(child: Container()),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
                       '18:00',
@@ -86,6 +89,7 @@ class MyListTile extends StatelessWidget {
                         : Container(),
                   ],
                 ),
+                const SizedBox(width: 3,),
                 const Icon(CupertinoIcons.chevron_right)
               ],
             )
