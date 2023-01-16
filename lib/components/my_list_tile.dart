@@ -12,6 +12,7 @@ class MyListTile extends StatelessWidget {
   final icon;
   final onTap;
   final onImageTap;
+  final border;
   const MyListTile(
       {required this.image,
       required this.title,
@@ -21,11 +22,12 @@ class MyListTile extends StatelessWidget {
       required this.icon,
       required this.onTap,
       required this.onImageTap,
+      required this.border,
       super.key});
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(  
+    return GestureDetector(
       onTap: () => onTap(),
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 30),
@@ -35,35 +37,43 @@ class MyListTile extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                image != null?
-                GestureDetector(
-                  onTap: () => onImageTap(),
-                  child: CircleAvatar(
-                    radius: 30,
-                    backgroundImage: NetworkImage(image),
-                  ),
-                ): Container(),
-               
-                const SizedBox(width: 14,),
-                 Column(
+                image != null
+                    ? GestureDetector(
+                        onTap: () => onImageTap(),
+                        child: CircleAvatar(
+                          radius: 30,
+                          backgroundColor: AppColors.avatarBorder,
+                          child: CircleAvatar(
+                            radius: border? 26: 30,
+                            backgroundImage: NetworkImage(image),
+                          ),
+                        ),
+                      )
+                    : Container(),
+                const SizedBox(
+                  width: 14,
+                ),
+                Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      title != null
-                          ? Text(
-                              title,
-                              style: const TextStyle(
-                                  fontSize: 14, fontWeight: FontWeight.bold),
-                            )
-                          : Container(),
-                      subtitle != null
-                          ? Text(
-                              subtitle,
-                              style: const TextStyle(fontSize: 11),
-                            )
-                          : Container()
-                    ],
-                  ),
-             
+                  children: [
+                    title != null
+                        ? Text(
+                            title,
+                            style: const TextStyle(
+                                fontSize: 14, fontWeight: FontWeight.bold),
+                          )
+                        : Container(),
+                    const SizedBox(
+                      height: 6,
+                    ),
+                    subtitle != null
+                        ? Text(
+                            subtitle,
+                            style: const TextStyle(fontSize: 11),
+                          )
+                        : Container()
+                  ],
+                ),
               ],
             ),
             Expanded(child: Container()),
@@ -89,7 +99,9 @@ class MyListTile extends StatelessWidget {
                         : Container(),
                   ],
                 ),
-                const SizedBox(width: 3,),
+                const SizedBox(
+                  width: 3,
+                ),
                 const Icon(CupertinoIcons.chevron_right)
               ],
             )

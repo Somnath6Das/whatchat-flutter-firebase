@@ -10,7 +10,8 @@ import 'package:whatchat/models/people_model.dart';
 
 
 class AppColors {
-  static Color? primary = Color.fromARGB(255, 72, 153, 6);
+  static Color? primary = Color.fromARGB(255, 77, 165, 6);
+  static Color? avatarBorder = Color.fromARGB(255, 90, 184, 13);
   static Color? bottomTabBarBackground = Colors.white;
 }
 

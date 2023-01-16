@@ -36,6 +36,7 @@ class ChatsScreen extends StatelessWidget {
                               date: e.date,
                               count: e.count,
                               icon: CupertinoIcons.chevron_right,
+                              border: e.story,
                               onTap: ()=>{},
                               onImageTap: ()=>{}))
                           .toList()),
