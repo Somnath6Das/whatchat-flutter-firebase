@@ -7,7 +7,7 @@ class MeModel {
   final String gender;
   final String job_title;
   final String job_area;
-  final String story;
+  final bool story;
   final String status;
   final List<String> stories;
 
@@ -24,7 +24,7 @@ class MeModel {
       required this.story,
       required this.stories});
 
-  factory MeModel.fromJson(Map<String, dynamic> data) => MeModel (
+ factory MeModel.fromJson(Map<String, dynamic> data) => MeModel (
       firstname: data['firstname'],
       lastname: data['lastname'],
       avatar: data['avatar'],

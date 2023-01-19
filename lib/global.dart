@@ -11,14 +11,17 @@ import 'package:whatchat/models/people_model.dart';
 
 class AppColors {
   static Color? primary = Color.fromARGB(255, 77, 165, 6);
-  static Color? avatarBorder = Color.fromARGB(255, 90, 184, 13);
+  static Color? avatarBorder = Color.fromARGB(255, 178, 182, 175);
   static Color? bottomTabBarBackground = Colors.white;
 }
 
 const url = 'https://somnath6das.github.io/api';
 
 class WhatChat {
-  static const whatChat = '$url/data3.json';
+
+  static const whatChat = '$url/me.json';
+
+
   static Future<MeModel> me() async {
     final response = await http.get(Uri.parse(whatChat));
     if (response.statusCode == 200) {
@@ -30,7 +33,7 @@ class WhatChat {
   }
 
   static Future<List<ChatsModel>> chats() async {
-    final response = await http.get(Uri.parse('$url/data.json'));
+    final response = await http.get(Uri.parse('$url/chats.json'));
     if (response.statusCode == 200) {
       // print(jsonDecode(response.body));
       // print(jsonDecode(response.body).runtimeType);
@@ -41,10 +44,8 @@ class WhatChat {
     throw Exception(response.reasonPhrase);
   }
 
- 
-
    static Future<List<PeopleModel>> people() async {
-    final response = await http.get(Uri.parse('$url/data2.json'));
+    final response = await http.get(Uri.parse('$url/people.json'));
     if (response.statusCode == 200) {
       // print(jsonDecode(response.body));
       // print(jsonDecode(response.body).runtimeType);

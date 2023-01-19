@@ -14,15 +14,15 @@ class MyListTile extends StatelessWidget {
   final onImageTap;
   final border;
   const MyListTile(
-      {required this.image,
-      required this.title,
-      required this.subtitle,
-      required this.date,
-      required this.count,
-      required this.icon,
-      required this.onTap,
-      required this.onImageTap,
-      required this.border,
+      { this.image,
+      this.title,
+       this.subtitle,
+      this.date,
+       this.count,
+       this.icon,
+       this.onTap,
+       this.onImageTap,
+       this.border,
       super.key});
 
   @override
@@ -83,10 +83,11 @@ class MyListTile extends StatelessWidget {
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    date != null ? 
                     Text(
-                      '18:00',
+                      date,
                       style: TextStyle(fontSize: 12, color: AppColors.primary),
-                    ),
+                    ): Container(),
                     count != null
                         ? CircleAvatar(
                             radius: 10,
