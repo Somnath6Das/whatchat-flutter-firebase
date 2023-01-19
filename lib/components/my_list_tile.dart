@@ -14,15 +14,15 @@ class MyListTile extends StatelessWidget {
   final onImageTap;
   final border;
   const MyListTile(
-      { this.image,
+      {this.image,
       this.title,
-       this.subtitle,
+      this.subtitle,
       this.date,
-       this.count,
-       this.icon,
-       this.onTap,
-       this.onImageTap,
-       this.border,
+      this.count,
+      this.icon,
+      this.onTap,
+      this.onImageTap,
+      required this.border,
       super.key});
 
   @override
@@ -44,7 +44,7 @@ class MyListTile extends StatelessWidget {
                           radius: 30,
                           backgroundColor: AppColors.avatarBorder,
                           child: CircleAvatar(
-                            radius: border? 26: 30,
+                            radius: border ? 26 : 30,
                             backgroundImage: NetworkImage(image),
                           ),
                         ),
@@ -83,11 +83,13 @@ class MyListTile extends StatelessWidget {
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    date != null ? 
-                    Text(
-                      date,
-                      style: TextStyle(fontSize: 12, color: AppColors.primary),
-                    ): Container(),
+                    date != null
+                        ? Text(
+                            date,
+                            style: TextStyle(
+                                fontSize: 12, color: AppColors.primary),
+                          )
+                        : Container(),
                     count != null
                         ? CircleAvatar(
                             radius: 10,
@@ -103,7 +105,9 @@ class MyListTile extends StatelessWidget {
                 const SizedBox(
                   width: 3,
                 ),
-                const Icon(CupertinoIcons.chevron_right)
+                icon != null
+                    ? Icon(icon, color: AppColors.primary)
+                    : Container()
               ],
             )
           ],
