@@ -35,7 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return CupertinoPageScaffold(
         child: CupertinoTabScaffold(
             tabBar: CupertinoTabBar(
-                backgroundColor: AppColors.bottomTabBarBackground,
+               
                 items: const [
                   BottomNavigationBarItem(
                       label: "Chats",

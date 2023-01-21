@@ -4,6 +4,7 @@ import 'package:whatchat/components/my_list_tile.dart';
 import 'package:whatchat/components/search_bar.dart';
 import 'package:whatchat/global.dart';
 import 'package:whatchat/models/chats_model.dart';
+import 'package:whatchat/screens/messages.dart';
 
 class ChatsScreen extends StatelessWidget {
   const ChatsScreen({super.key});
@@ -37,7 +38,7 @@ class ChatsScreen extends StatelessWidget {
                               count: e.count,
                               icon: CupertinoIcons.chevron_right,
                               border: e.story,
-                              onTap: ()=>{},
+                              onTap: ()=> navigate(context, Messages(contact: e.name,)),
                               onImageTap: ()=>{}))
                           .toList()),
                     )
