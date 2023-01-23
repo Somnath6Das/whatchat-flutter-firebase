@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:whatchat/components/my_list_tile.dart';
 import 'package:whatchat/components/search_bar.dart';
 import 'package:whatchat/global.dart';
