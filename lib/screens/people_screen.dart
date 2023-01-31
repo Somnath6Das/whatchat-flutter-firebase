@@ -198,12 +198,15 @@ class Stories extends StatelessWidget {
                               padding: const EdgeInsets.only(right: 15),
                               child: Column(
                                 children: [
-                                  CircleAvatar(
-                                    radius: 40,
-                                    backgroundColor: AppColors.avatarBorder,
+                                  GestureDetector(
+                                    onTap: ()=>{},
                                     child: CircleAvatar(
-                                      radius: (e.story) ? 35 : 40,
-                                      backgroundImage: NetworkImage(e.avatar),
+                                      radius: 40,
+                                      backgroundColor: AppColors.avatarBorder,
+                                      child: CircleAvatar(
+                                        radius: (e.story) ? 35 : 40,
+                                        backgroundImage: NetworkImage(e.avatar),
+                                      ),
                                     ),
                                   ),
                                   Text(

@@ -11,8 +11,9 @@ import 'package:whatchat/models/people_model.dart';
 
 class AppColors {
   static Color? primary = const Color.fromARGB(255, 77, 165, 6);
-  static Color? avatarBorder = const Color.fromARGB(255, 178, 182, 175);
+  static Color? avatarBorder = Color.fromARGB(255, 228, 54, 11);
   static Color? bottomTabBarBackground = Colors.white;
+  static Color? isNotSenderChatBackground = Color.fromARGB(255, 72, 72, 75);
 }
 
 const url = 'https://somnath6das.github.io/api';

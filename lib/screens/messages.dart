@@ -14,105 +14,107 @@ class Messages extends StatelessWidget {
     return FutureBuilder<List<MessageModel>>(
         future: WhatChat.message(),
         builder: (context, snapshot) {
-          return Column(
-            children: [
-              Expanded(
-                child: CustomScrollView(
-                  slivers: [
-                    CupertinoSliverNavigationBar(
-                      largeTitle: Text(
-                        contact,
-                        style: TextStyle(color: AppColors.primary),
+          return CupertinoPageScaffold(
+            child: Column(
+              children: [
+                Expanded(
+                  child: CustomScrollView(
+                    slivers: [
+                      CupertinoSliverNavigationBar(
+                        largeTitle: Text(
+                          contact,
+                          style: TextStyle(color: AppColors.primary),
+                        ),
+                        trailing: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            CupertinoButton(
+                                onPressed: () {},
+                                child: const Icon(
+                                  CupertinoIcons.video_camera,
+                                 
+                                  size: 27,
+                                )),
+                            CupertinoButton(
+                                onPressed: () {},
+                                child: const Icon(
+                                  CupertinoIcons.phone,
+                                  color: Colors.blue,
+                                ))
+                          ],
+                        ),
                       ),
-                      trailing: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          CupertinoButton(
-                              onPressed: () {},
-                              child: const Icon(
-                                CupertinoIcons.video_camera,
-                               
-                                size: 27,
-                              )),
-                          CupertinoButton(
-                              onPressed: () {},
-                              child: const Icon(
-                                CupertinoIcons.phone,
-                                color: Colors.blue,
-                              ))
-                        ],
+                      SearchBar(
+                        onChanged: () {},
+                        onSubmitted: () {},
                       ),
-                    ),
-                    SearchBar(
-                      onChanged: () {},
-                      onSubmitted: () {},
-                    ),
-                    snapshot.hasData
-                        ? SliverList(
-                              delegate: SliverChildListDelegate(
-                              snapshot.data!.map((e) {
-                                return e.sender
-                                    ? BubbleSpecialThree(
-                                        text: e.msg,
-                                        color: AppColors.primary!,
-                                        tail: true,
-                                        textStyle: const TextStyle(
-                                            color: Colors.white, fontSize: 16),
-                                      )
-                                    : BubbleSpecialThree(
-                                        text: e.msg,
-                                        color: Colors.white,
-                                        tail: true,
-                                        isSender: false,
-                                        textStyle: const TextStyle(
-                                            color: Colors.black, fontSize: 16),
-                                      );
-                              }).toList(),
-                            ))
-                       
-                        : (snapshot.connectionState == ConnectionState.waiting)
-                            ? SliverFillRemaining(
-                                child: CupertinoActivityIndicator(
-                                  color: AppColors.primary,
-                                ),
-                              )
-                            : SliverFillRemaining(
-                                child: Center(
-                                child: Text(snapshot.error.toString()),
+                      snapshot.hasData
+                          ? SliverList(
+                                delegate: SliverChildListDelegate(
+                                snapshot.data!.map((e) {
+                                  return e.sender
+                                      ? BubbleSpecialThree(
+                                          text: e.msg,
+                                          color: AppColors.primary!,
+                                          tail: true,
+                                          textStyle: const TextStyle(
+                                              color: Colors.white, fontSize: 16),
+                                        )
+                                      : BubbleSpecialThree(
+                                          text: e.msg,
+                                          color: AppColors.isNotSenderChatBackground!,
+                                          tail: true,
+                                          isSender: false,
+                                          textStyle: const TextStyle(
+                                              color: Colors.white, fontSize: 16),
+                                        );
+                                }).toList(),
                               ))
-                  ],
-                ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  CupertinoButton(
-                      onPressed: () {},
-                      child: const Icon(
-                        CupertinoIcons.add,
-                        color: Colors.blue,
-                      )),
-                  CupertinoButton(
-                      onPressed: () {},
-                      child: const Icon(
-                        CupertinoIcons.camera,
-                       
-                      )),
-                  Expanded(
-                    child: CupertinoTextField(
-                      placeholder: "Write your msg here.",
-                      controller: TextEditingController(),
-                    ),
+                         
+                          : (snapshot.connectionState == ConnectionState.waiting)
+                              ? SliverFillRemaining(
+                                  child: CupertinoActivityIndicator(
+                                    color: AppColors.primary,
+                                  ),
+                                )
+                              : SliverFillRemaining(
+                                  child: Center(
+                                  child: Text(snapshot.error.toString()),
+                                ))
+                    ],
                   ),
-                  CupertinoButton(
-                      onPressed: () {},
-                      child: const Icon(
-                        Icons.send_sharp,
-                      )),
-                      const SizedBox(height: 100,)
-                ],
-              )
-            ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    CupertinoButton(
+                        onPressed: () {},
+                        child: const Icon(
+                          CupertinoIcons.add,
+                          color: Colors.blue,
+                        )),
+                    CupertinoButton(
+                        onPressed: () {},
+                        child: const Icon(
+                          CupertinoIcons.camera,
+                         
+                        )),
+                    Expanded(
+                      child: CupertinoTextField(
+                        placeholder: "Write your msg here.",
+                        controller: TextEditingController(),
+                      ),
+                    ),
+                    CupertinoButton(
+                        onPressed: () {},
+                        child: const Icon(
+                          Icons.send_sharp,
+                        )),
+                        const SizedBox(height: 100,)
+                  ],
+                )
+              ],
+            ),
           );
         });
   }
