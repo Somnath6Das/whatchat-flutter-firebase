@@ -52,6 +52,7 @@ class _StoryPreviewState extends State<StoryPreview> {
                   child: Container(
                 color: Colors.black,
               )),
+              // full screen story picture.
               Positioned.fill(
                   child: Image.network(
                 story.imageUrl,
@@ -64,6 +65,7 @@ class _StoryPreviewState extends State<StoryPreview> {
                     Container(
                       height: 32,
                       width: 32,
+                      // story user name and profile picture top left.
                       decoration: BoxDecoration(
                           image: DecorationImage(
                               image: NetworkImage(user.imageUrl),
@@ -79,6 +81,38 @@ class _StoryPreviewState extends State<StoryPreview> {
                           fontWeight: FontWeight.bold),
                     )
                   ],
+                ),
+              )
+            ],
+          );
+        },
+        gestureItemBuilder: (context, pageIndex, storyIndex) {
+          // top right corner menu button and close button.
+          return Stack(
+            children: [
+              Align(
+                alignment: Alignment.topRight,
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 32),
+                  child: CupertinoButton(
+                      onPressed: (() => pop(context)),
+                      child: const Icon(
+                        CupertinoIcons.clear,
+                        color: Colors.white,
+                      )),
+                ),
+              ),
+              Positioned(
+                right: 40,
+                top: 5,
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 32),
+                  child: CupertinoButton(
+                      child: const Icon(
+                        CupertinoIcons.ellipsis,
+                        color: Colors.white,
+                      ),
+                      onPressed: () {}),
                 ),
               )
             ],
