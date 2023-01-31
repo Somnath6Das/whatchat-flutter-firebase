@@ -181,7 +181,7 @@ class Stories extends StatelessWidget {
       List<StoryModel> stories = people.stories.map((img) => StoryModel(img)).toList();
       // iv> call the UserModel and send three parameter data the - List stories, PeopleModel firstName and PeopleModel avatar.
       return UserModel(stories, people.firstName, people.avatar);
-      // v> if List is empty return empty array.
+      // v> if value of List is empty return empty array.
     }).toList() ?? [];
   }
 
@@ -207,7 +207,7 @@ class Stories extends StatelessWidget {
                         // we don't need all the data from people model, if PeopleModel bool story = true,then collect the dada.
                         children: snapshot.data!
                             .where((PeopleModel people) => (people.story))
-                            // mapIndexed comes from 
+                            // mapIndexed comes from collection.dart in build package.
                             .mapIndexed(
                           (int index, PeopleModel e) {
                             return Padding(
