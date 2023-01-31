@@ -1,3 +1,5 @@
+
+import 'package:collection/collection.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -6,7 +8,10 @@ import 'package:whatchat/components/search_bar.dart';
 import 'package:whatchat/global.dart';
 import 'package:whatchat/models/me_model.dart';
 import 'package:whatchat/models/people_model.dart';
-import 'package:whatchat/screens/messages.dart';
+import 'package:whatchat/models/story_model.dart';
+import 'package:whatchat/models/user_model.dart';
+import 'package:whatchat/screens/messages_screen.dart';
+import 'package:whatchat/screens/story_preview.dart';
 
 class PeopleScreen extends StatelessWidget {
   const PeopleScreen({super.key});
@@ -165,10 +170,20 @@ class MyStatus extends StatelessWidget {
 
 class Stories extends StatelessWidget {
   final AsyncSnapshot<List<PeopleModel>> snapshot;
-  const Stories({
+  List<UserModel> sampleUser = [];
+  Stories({
     Key? key,
     required this.snapshot,
-  }) : super(key: key);
+  }) {
+    //i> if PeopleModel bool story = true;
+    sampleUser = snapshot.data?.where((people) => people.story).map((people) {
+      //ii> take the all the picture inside PeopleModel stories and packed into StoryModel send into stories List.
+      List<StoryModel> stories = people.stories.map((img) => StoryModel(img)).toList();
+      // iv> call the UserModel and send three parameter data the - List stories, PeopleModel firstName and PeopleModel avatar.
+      return UserModel(stories, people.firstName, people.avatar);
+      // v> if List is empty return empty array.
+    }).toList() ?? [];
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -189,17 +204,19 @@ class Stories extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(vertical: 15),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        // we don't need all the data from people model, if PeopleModel bool story is true then collect the dada.
+                        // we don't need all the data from people model, if PeopleModel bool story = true,then collect the dada.
                         children: snapshot.data!
                             .where((PeopleModel people) => (people.story))
-                            .map(
-                          (PeopleModel e) {
+                            // mapIndexed comes from 
+                            .mapIndexed(
+                          (int index, PeopleModel e) {
                             return Padding(
                               padding: const EdgeInsets.only(right: 15),
                               child: Column(
                                 children: [
                                   GestureDetector(
-                                    onTap: ()=>{},
+                                    // data pass to StoryPreview page.
+                                    onTap: () => navigate(context, StoryPreview(pageIndex: index, users: sampleUser)),
                                     child: CircleAvatar(
                                       radius: 40,
                                       backgroundColor: AppColors.avatarBorder,
