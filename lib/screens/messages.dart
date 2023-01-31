@@ -49,26 +49,27 @@ class Messages extends StatelessWidget {
                     ),
                     snapshot.hasData
                         ? SliverList(
-                            delegate: SliverChildListDelegate(
-                            snapshot.data!.map((e) {
-                              return e.sender
-                                  ? BubbleSpecialThree(
-                                      text: e.msg,
-                                      color: AppColors.primary!,
-                                      tail: true,
-                                      textStyle: const TextStyle(
-                                          color: Colors.white, fontSize: 16),
-                                    )
-                                  : BubbleSpecialThree(
-                                      text: e.msg,
-                                      color: Colors.white,
-                                      tail: true,
-                                      isSender: false,
-                                      textStyle: const TextStyle(
-                                          color: Colors.black, fontSize: 16),
-                                    );
-                            }).toList(),
-                          ))
+                              delegate: SliverChildListDelegate(
+                              snapshot.data!.map((e) {
+                                return e.sender
+                                    ? BubbleSpecialThree(
+                                        text: e.msg,
+                                        color: AppColors.primary!,
+                                        tail: true,
+                                        textStyle: const TextStyle(
+                                            color: Colors.white, fontSize: 16),
+                                      )
+                                    : BubbleSpecialThree(
+                                        text: e.msg,
+                                        color: Colors.white,
+                                        tail: true,
+                                        isSender: false,
+                                        textStyle: const TextStyle(
+                                            color: Colors.black, fontSize: 16),
+                                      );
+                              }).toList(),
+                            ))
+                       
                         : (snapshot.connectionState == ConnectionState.waiting)
                             ? SliverFillRemaining(
                                 child: CupertinoActivityIndicator(
