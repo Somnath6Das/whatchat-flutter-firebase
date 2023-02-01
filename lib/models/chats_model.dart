@@ -7,6 +7,7 @@ class ChatsModel {
   final bool story;
   final bool opened;
   final String type;
+  final List<String> stories;
   ChatsModel({
     required this.name,
     required this.avatar,
@@ -16,14 +17,16 @@ class ChatsModel {
     required this.story,
     required this.opened,
     required this.type,
+    required this.stories,
   });
   factory ChatsModel.fromJson(Map<String, dynamic> data) => ChatsModel(
       name: data["name"] ?? "",
-      avatar: data["avatar"] ??"",
-      msg: data["msg"] ??"",
-      date: data["date"] ??"",
-      count: data["count"] ??"",
-      story: data["story"] ??"",
-      opened: data["opened"] ??"",
-      type: data["type"] ??"");
+      avatar: data["avatar"] ?? "",
+      msg: data["msg"] ?? "",
+      date: data["date"] ?? "",
+      count: data["count"] ?? "",
+      story: data["story"] ?? "",
+      opened: data["opened"] ?? "",
+      type: data["type"] ?? "",
+      stories: List.from(data["stories"]?? ""));
 }

@@ -112,9 +112,9 @@ class _StoryPreviewState extends State<StoryPreview> {
                         CupertinoIcons.ellipsis,
                         color: Colors.white,
                       ),
-                      onPressed: () {}),
+                      onPressed: ()=> Navigator.of(context).restorablePush(_modelBuilder),
                 ),
-              )
+              ))
             ],
           );
         },
@@ -133,4 +133,17 @@ class _StoryPreviewState extends State<StoryPreview> {
       ),
     ));
   }
+}
+
+
+// after tab the three dots this bottom dialog will open.
+ Route<void> _modelBuilder(BuildContext context, Object? arguments) {
+  return CupertinoModalPopupRoute<void>(builder: (BuildContext context) {
+    return CupertinoActionSheet(
+      cancelButton:  CupertinoActionSheetAction(child: const Text('Cancel'), onPressed: ()=> pop(context),),
+    actions: [
+      CupertinoActionSheetAction(child: const Text('Report'), onPressed: ()=> pop(context)),
+      CupertinoActionSheetAction(child: const Text('Mute'), onPressed: ()=> pop(context)),],
+    );
+  });
 }
