@@ -47,14 +47,23 @@ class ChatsScreen extends StatelessWidget {
                                   )),
                               onImageTap: () {
                                 // on chat screen tab on avatar full screen picture will shown.
+                                //i> if ChatsModel bool story = false return nothing.
                                 if (!e.story) return;
+                                //ii> create a array type UserModel.
                                 List<UserModel> sampleUser = [];
-                                List<StoryModel> stories = [];
-                                stories = e.stories
+                                //iii> ChatsModel stories String images pass to StoryModel and save into stories variables type StoryModel.                   
+                                List<StoryModel> stories = e.stories
                                     .map((img) => StoryModel(img))
                                     .toList();
+                                //iv> pass 3 parameter, 
+                                //first parameter stories which is comes from ChatModel and convert by StoryModel as a list pass through UserModel,
+                                //second parameter comes from ChatsModel name variable,
+                                // third parameter comes from ChatModel avatar variables.
+                                // all the three parameter pass through UserModel and store it into sampleUser array.
                                 sampleUser
                                     .add(UserModel(stories, e.name, e.avatar));
+                                //v> pass sampleUser array to StoryPreview screen,
+                                // we target particular user to see his story that's why pageIndex = 0,
                                 navigate(context,
                                     StoryPreview( users: sampleUser, pageIndex: 0,));
                               }))
