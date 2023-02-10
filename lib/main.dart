@@ -5,12 +5,12 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_model_notifier/firebase_model_notifier.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:whatchat/firebase_options.dart';
 import 'package:whatchat/global.dart';
 import 'package:whatchat/my_home_page.dart';
 import 'package:firestore_model/firestore_model.dart';
+import 'package:whatchat/screens/auth_gate.dart';
 
 const bool useEmulator = true;
 
@@ -89,7 +89,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
               ? Brightness.dark
               : Brightness.light,
           primaryColor: AppColors.primary),
-      home: const MyHomePage(),
+      home: const AuthGate(),
     );
   }
 }
