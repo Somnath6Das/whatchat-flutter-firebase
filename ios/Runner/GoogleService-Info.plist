@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>763155874788-oj6l6qc54lo7f2dp9ee248847cjeorh9.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.763155874788-oj6l6qc54lo7f2dp9ee248847cjeorh9</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCIzNrz79IjXsvl9ZBOCUaMbzVt0-SS2-w</string>
+	<key>GCM_SENDER_ID</key>
+	<string>763155874788</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.whatchat.whatchat</string>
+	<key>PROJECT_ID</key>
+	<string>what-chat-56a95</string>
+	<key>STORAGE_BUCKET</key>
+	<string>what-chat-56a95.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:763155874788:ios:ee2c698f919096e140fdf1</string>
+</dict>
+</plist>
