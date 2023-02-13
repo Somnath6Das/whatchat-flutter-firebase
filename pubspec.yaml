@@ -38,6 +38,7 @@ dependencies:
   firestore_model: ^0.9.10
   flutter:
     sdk: flutter
+  flutter_otp_text_field: ^1.1.1
   flutterfire_ui: ^0.4.3+20
   http: ^0.13.5
   image_picker: ^0.8.6+1
@@ -60,8 +61,8 @@ flutter:
   uses-material-design: true
   # To add assets to your application, add an assets section, like this:
   assets:
-   - images/
-   - firebase.json
+    - images/
+    - firebase.json
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
