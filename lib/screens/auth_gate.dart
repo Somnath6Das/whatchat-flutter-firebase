@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterfire_ui/auth.dart';
 import 'package:whatchat/my_home_page.dart';
+import 'package:whatchat/screens/profile_page.dart';
 
 class AuthGate extends StatelessWidget {
   const AuthGate({super.key});
@@ -26,16 +27,20 @@ class AuthGate extends StatelessWidget {
                   : const Text('Welcome to whatChat, Please sign up!'),
             ),
             footerBuilder: (context, action) => const Padding(
-              padding:  EdgeInsets.only(top: 8.0),
-              child:  Text(
+              padding: EdgeInsets.only(top: 8.0),
+              child: Text(
                 'By signing in, you agree to our terms and conditions.',
                 style: TextStyle(color: Colors.grey),
               ),
             ),
-            providerConfigs: [PhoneProviderConfiguration()],
+            providerConfigs: const [PhoneProviderConfiguration()],
           );
         }
-        return const MyHomePage();
+        if (FirebaseAuth.instance.currentUser?.displayName != null) {
+          return const ProfilePage();
+        } else {
+          return const ProfilePage();
+        }
       }),
     );
   }

@@ -1,17 +1,16 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:cloud_functions/cloud_functions.dart';
+// import 'package:cloud_functions/cloud_functions.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_model_notifier/firebase_model_notifier.dart';
+// import 'package:firebase_model_notifier/firebase_model_notifier.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:whatchat/firebase_options.dart';
+import 'package:whatchat/firestore_models/users_data.dart';
 import 'package:whatchat/global.dart';
-import 'package:whatchat/my_home_page.dart';
 import 'package:firestore_model/firestore_model.dart';
 import 'package:whatchat/screens/auth_gate.dart';
-import 'package:whatchat/screens/phone_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 const bool useEmulator = true;
@@ -21,7 +20,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-
+  FirestoreModel.injectAll([UserData()]);
   // await FirebaseApp.initializeApp(
   //     options: DefaultFirebaseOptions.currentPlatform,
   //     settings: FirestoreModelSettings(
@@ -76,7 +75,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
     WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }
-
+ 
   @override
   void didChangePlatformBrightness() {
     if (mounted) {

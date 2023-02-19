@@ -1,7 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:whatchat/global.dart';
-import 'package:cupertino_list_tile/cupertino_list_tile.dart';
+import 'package:whatchat/screens/auth_gate.dart';
+
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -62,6 +64,14 @@ class SettingsScreen extends StatelessWidget {
           onTap: () => {},
           icon: CupertinoIcons.heart_fill,
         ),
+        SettingsItem(
+            title: 'Sign Out',
+            color: Colors.black,
+            onTap: () {
+              FirebaseAuth.instance.signOut();
+              navigate(context, const AuthGate());
+            },
+            icon: Icons.logout_rounded),
       ],
     );
   }
@@ -94,8 +104,11 @@ class SettingsItem extends StatelessWidget {
             icon,
             color: Colors.white,
           )),
-      title:
-          Text(title, style: TextStyle(fontSize: 18, color: Colors.grey.shade700,fontWeight: FontWeight.w600)),
+      title: Text(title,
+          style: TextStyle(
+              fontSize: 18,
+              color: Colors.grey.shade700,
+              fontWeight: FontWeight.w600)),
       trailing: const Icon(CupertinoIcons.chevron_right),
     ));
   }

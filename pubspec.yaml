@@ -28,12 +28,12 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   chat_bubbles: ^1.4.0
-  cloud_functions: ^4.0.8
+  # cloud_functions: ^4.0.8
   cupertino_icons: ^1.0.2
-  cupertino_list_tile: ^0.2.1
+ 
   firebase_auth: ^4.2.6
   firebase_core: ^2.5.0
-  firebase_model_notifier: ^0.15.1+22
+  # firebase_model_notifier: ^0.15.1+22
   firebase_storage: ^11.0.11
   firestore_model: ^0.9.10
   flutter:
@@ -42,6 +42,7 @@ dependencies:
   flutterfire_ui: ^0.4.3+20
   http: ^0.13.5
   image_picker: ^0.8.6+1
+  platform_list_tile: ^0.0.1
   story: ^1.0.0+1
   story_page_view: ^1.0.0
 
@@ -63,7 +64,7 @@ flutter:
   assets:
     - images/
     - firebase.json
-  #   - images/a_dot_ham.jpeg
+    # - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
   # For details regarding adding assets from package dependencies, see
