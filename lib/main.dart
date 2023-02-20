@@ -10,6 +10,7 @@ import 'package:whatchat/firebase_options.dart';
 import 'package:whatchat/firestore_models/users_data.dart';
 import 'package:whatchat/global.dart';
 import 'package:firestore_model/firestore_model.dart';
+import 'package:whatchat/my_home_page.dart';
 import 'package:whatchat/screens/auth_gate.dart';
 import 'package:firebase_core/firebase_core.dart';
 
@@ -95,7 +96,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
               ? Brightness.dark
               : Brightness.light,
           primaryColor: AppColors.primary),
-      home: const AuthGate(),
+      home: const MyHomePage(),
     );
   }
 }
