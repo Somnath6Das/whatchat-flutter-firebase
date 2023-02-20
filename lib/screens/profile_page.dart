@@ -2,12 +2,15 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firestore_model/firestore_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 import 'package:whatchat/firestore_models/users_data.dart';
 import 'package:whatchat/global.dart';
 import 'package:whatchat/screens/auth_gate.dart';
 
 class ProfilePage extends StatefulWidget {
-  const ProfilePage({super.key});
+  ProfilePage({
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<ProfilePage> createState() => _ProfilePageState();
@@ -49,29 +52,30 @@ class _ProfilePageState extends State<ProfilePage> {
       onError: (error) => const Center(child: Text('Some error occurred!')),
       docId: FirebaseAuth.instance.currentUser?.uid,
       onSuccess: (user) {
-        // _textName.text = user?.name ?? '';
-        // _textStatus.text = user?.status ?? '';
-        return Text('hello');
-        // Column(
-        //   mainAxisAlignment: MainAxisAlignment.center,
-        //   children: [
-        //    user != null? SizedBox(
-        //       width: 200,
-        //       child: AspectRatio(
-        //           aspectRatio: 1, child: Image.asset('images/speak.png')),
-        //     ) :Container(),
-        //     CircleAvatar(
-        //       radius: 30,
-        //       backgroundColor: AppColors.avatarBorder,
-        //       child: user?.avatar != null
-        //           ? CircleAvatar(
-        //               radius: 26,
-        //               backgroundImage: NetworkImage(user!.avatar!),
-        //             )
-        //           : Container(),
-        //     ),
-        //   ],
-        // );
+        _textName.text = user?.name ?? '';
+        _textStatus.text = user?.status ?? '';
+        return Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            user != null
+                ? SizedBox(
+                    width: 200,
+                    child: AspectRatio(
+                        aspectRatio: 1, child: Image.asset('images/speak.png')),
+                  )
+                : Container(),
+            CircleAvatar(
+              radius: 30,
+              backgroundColor: AppColors.avatarBorder,
+              child: user?.avatar != null
+                  ? CircleAvatar(
+                      radius: 26,
+                      backgroundImage: NetworkImage(user!.avatar!),
+                    )
+                  : Container(),
+            ),
+          ],
+        );
       },
     ));
   }

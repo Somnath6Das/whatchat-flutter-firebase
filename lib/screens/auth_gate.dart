@@ -37,9 +37,9 @@ class AuthGate extends StatelessWidget {
           );
         }
         if (FirebaseAuth.instance.currentUser?.displayName != null) {
-          return const ProfilePage();
+          return MyHomePage();
         } else {
-          return const ProfilePage();
+          return MyHomePage();
         }
       }),
     );
